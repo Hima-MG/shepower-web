@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --color-navy: #193D66;
+  --color-navy-light: #234B78;
+  --color-soft-blue: #A9C5DF;
+  --color-pale-blue: #E9F2F9;
+  --color-cream: #F7F4ED;
+  --color-sand: #E8D9C5;
+  --color-body: #526783;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #F7F4ED;
+    color: #193D66;
+    overflow-x: clip;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+}
+
+.font-editorial {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.font-ui {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-prose {
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Subtle architectural horizontal scrollbar hiding for mobile carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes heroSlowZoom {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.045) translate3d(-0.4%, 0, 0);
+  }
+}
+
+.animate-hero-cinematic {
+  animation: heroSlowZoom 22s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-hero-cinematic {
+    animation: none;
+  }
+}
